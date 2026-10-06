@@ -1,0 +1,8 @@
+function that gives index of correctly positioned alphabet()
+
+function that generates random lists for 24 letters of the alphabet()
+    call index alphabet function
+
+function that generates a 5 letter keyword()
+
+function that assigns lists to the letters in the 5 letter keyword(keyword)

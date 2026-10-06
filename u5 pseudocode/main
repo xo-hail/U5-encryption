@@ -1,0 +1,7 @@
+import secrets
+import random
+import cipher
+
+call function that generates lists 
+call function with loop that assigns lists to letters
+
