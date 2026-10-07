@@ -12,32 +12,30 @@ correct_alphabet = [
 # function that generates random lists for 24 letters of the alphabet()
     # call index alphabet function
 
-def random_list(list):
+def random_list(alphabet_list):
     letter_list = []
+    number_list = []
 
-    for i in list:
+    while len(letter_list) < len(alphabet_list):
         repeated_numbers = []
-        number_list = []
 
         # Main randomization
-        number = random.randint(0, 23)
-        number_list.append(number)
-        
+        number = random.randint(0, 25)
+
         # Anti-dupe system
-        if number in number_list:
-            repeated_numbers.append(number)
-        elif number in repeated_numbers:
+        if number not in number_list:
+            number_list.append(number)
+        else:
             continue
 
         
-        letter_list.append(list[number])
+        letter_list.append(alphabet_list[number])
 
     return letter_list
 
 list = random_list(correct_alphabet)
 print(list)
 
-# Dupes still present
 
 
 
