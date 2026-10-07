@@ -1,7 +1,5 @@
 import random
 
-# function that gives index of correctly positioned alphabet()
-
 correct_alphabet = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g',
     'h', 'i', 'j', 'k', 'l', 'm', 'n', 
@@ -9,8 +7,19 @@ correct_alphabet = [
     'v', 'w', 'x', 'y', 'z'
     ]
 
-# function that generates random lists for 24 letters of the alphabet()
-    # call index alphabet function
+"""Generates a random keyword."""
+
+def random_keyword(alphabet_list):
+    keyword = []
+    keyword_length = 5
+
+    while len(keyword) < keyword_length:
+        number = random.randint(0, 25)
+        keyword.append(alphabet_list[number])
+
+    return keyword
+
+"""Generates a random list intended for each letter of the keyword."""
 
 def random_list(alphabet_list):
     letter_list = []
@@ -33,9 +42,8 @@ def random_list(alphabet_list):
 
     return letter_list
 
-list = random_list(correct_alphabet)
-print(list)
-
+keyword = random_keyword(correct_alphabet)
+print(keyword)
 
 
 
