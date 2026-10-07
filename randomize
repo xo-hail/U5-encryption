@@ -1,0 +1,45 @@
+import random
+
+# function that gives index of correctly positioned alphabet()
+
+correct_alphabet = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g',
+    'h', 'i', 'j', 'k', 'l', 'm', 'n', 
+    'o', 'p', 'q', 'r', 's', 't', 'u',
+    'v', 'w', 'x', 'y', 'z'
+    ]
+
+# function that generates random lists for 24 letters of the alphabet()
+    # call index alphabet function
+
+def random_list(list):
+    letter_list = []
+
+    for i in list:
+        repeated_numbers = []
+        number_list = []
+
+        # Main randomization
+        number = random.randint(0, 23)
+        number_list.append(number)
+        
+        # Anti-dupe system
+        if number in number_list:
+            repeated_numbers.append(number)
+        elif number in repeated_numbers:
+            continue
+
+        
+        letter_list.append(list[number])
+
+    return letter_list
+
+list = random_list(correct_alphabet)
+print(list)
+
+# Dupes still present
+
+
+
+
+
