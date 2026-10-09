@@ -7,24 +7,37 @@ alphabet_list = [
     'v', 'w', 'x', 'y', 'z'
     ]
 
+""" Starts up the randomizer. """
 
+def start_randomizer():
+    keyword = setup.random_keyword(alphabet_list)
+    loaded_keyword = setup.assign_lists(keyword)
+
+    return keyword, loaded_keyword
+    
 """ Encrypts a message passed into the function. """
 
 def encryption(message, loaded_keyword, keyword, alphabet_list):
     clean_msg = message_cleaning(message)
     encrypted_msg = []
+    keyword_tracker = 0
 
+    for char in clean_msg:   
+        # 1. Takes the index of the character of the message from the original alphabet list
+        letter_index = alphabet_list.index(char)
 
-    for letter in clean_msg:   
-        letter_index = alphabet_list.index(letter)
+        # 2. The keyword tracker divides itself by the length of the keyword
+        # -- This keeps the loop strictly within parameters
+        current_keyword_letter = keyword[keyword_tracker % len(keyword)]
 
-        while encrypted_msg < len(clean_msg):
+        # 3. The current keyword letter value is then used as the integer from within the letter list
+        letter_list = loaded_keyword[current_keyword_letter]
+        letter_replacement = letter_list[letter_index]
 
-            for letter in keyword:
-                letter_list = loaded_keyword[letter]
-                letter_replacement = letter_list[letter_index]
+        # 4. The letter replacement is appended into the encrypted message
+        encrypted_msg.append(letter_replacement)
 
-                encrypted_msg.append(letter_replacement)
+        keyword_tracker += 1
 
     return encrypted_msg
 

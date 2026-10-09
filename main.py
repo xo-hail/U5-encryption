@@ -11,6 +11,9 @@ def encryption_startup():
     else:
         sys.exit("See ya never!")
 
+    if_has_keyword = input("Do you have a particular keyword in mind (yes/no)? ")
+
+
     return message
 
 
