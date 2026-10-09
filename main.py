@@ -1,20 +1,18 @@
 import cipher
-import sys
+import setup
 
-""" Start up the encryption system. """
+alphabet = setup.alphabet_list()
+message, keyword = cipher.encryption_startup()
 
-def encryption_startup():
-    if_startup = input("Greetings! Would you like to encode a message (yes/no)? ")
+if keyword == 0:
+    keyword, loaded_keyword = cipher.start_randomizer()
 
-    if if_startup.strip().lower() == "yes":
-        message = input("Paste your message here: ")
-    else:
-        sys.exit("See ya never!")
-
-    if_has_keyword = input("Do you have a particular keyword in mind (yes/no)? ")
+loaded_keyword = setup.assign_lists(keyword)
+encrypted_message = cipher.encryption(message, loaded_keyword, keyword, alphabet)
+print(f"Your encrypted message: {encrypted_message}")
 
 
-    return message
+
 
 
 
