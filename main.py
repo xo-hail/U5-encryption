@@ -1,7 +1,9 @@
 import cipher
 import setup
+import lists
+import secrets 
 
-alphabet = setup.alphabet_list()
+alphabet = lists.alphabet_list()
 message, keyword = cipher.encryption_startup()
 
 if keyword == 0:
