@@ -1,4 +1,5 @@
 import setup
+import lists 
 import sys
 
 """ Start up the encryption system. """
@@ -23,7 +24,7 @@ def encryption_startup():
 """ Starts up the randomizer. """
 
 def start_randomizer():
-    keyword = setup.random_keyword(setup.alphabet_list())
+    keyword = setup.random_keyword(lists.alphabet_list())
     loaded_keyword = setup.assign_lists(keyword)
 
     return keyword, loaded_keyword
@@ -57,7 +58,15 @@ def encryption(message, loaded_keyword, keyword, alphabet_list):
         else:
             encrypted_msg.append(char)
 
-    return encrypted_msg
+    # Assemble the listed encrypted msg back together
+    # You could have used the join function but to celebrate getting it right, you chose to keep your original logic
+    joined_encrypted_msg = ""
+
+    for char in encrypted_msg:
+        joined_encrypted_msg += char
+
+
+    return joined_encrypted_msg
 
 def decryption(encrypted_msg, loaded_keyword):
 

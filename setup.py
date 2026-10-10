@@ -1,21 +1,9 @@
 import random
-
-""" Correct alphabet positions for program's reference. """
-
-def alphabet_list():
-    alphabet_list = [
-        'a', 'b', 'c', 'd', 'e', 'f', 'g',
-        'h', 'i', 'j', 'k', 'l', 'm', 'n', 
-        'o', 'p', 'q', 'r', 's', 't', 'u',
-        'v', 'w', 'x', 'y', 'z'
-    ]
-
-    return alphabet_list
+import lists
 
 """ Assigns generated lists into the letters of the keyword. """
 
 def assign_lists(keyword):
-    alphabet = alphabet_list()
     loaded_keyword = {}
 
     for letter in keyword:
@@ -39,7 +27,7 @@ def random_keyword(alphabet_list):
 """ Generates a random list intended for each letter of the keyword. """
 
 def random_list():
-    alphabet = alphabet_list()
+    alphabet = lists.alphabet_list()
     letter_list = []
     number_list = []
 
