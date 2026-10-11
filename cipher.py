@@ -88,19 +88,21 @@ def decryption(encrypted_msg, loaded_keyword, keyword, alphabet_list):
 
     # For each letter of the encrypted message, check each letter of the keyword.
     for char in encrypted_msg:
-        current_keyword_letter = keyword[keyword_tracker % len(keyword)]
+        if char in alphabet_list:
+            current_keyword_letter = keyword[keyword_tracker % len(keyword)]
 
-        # Find the letter in that list and check the index of where it is in alphabet list.
-        letter_list = loaded_keyword[current_keyword_letter]
-        letter_index = letter_list.index(char)
-        letter_replacement = alphabet_list[letter_index]
+            # Find the letter in that list and check the index of where it is in alphabet list.
+            letter_list = loaded_keyword[current_keyword_letter]
+            letter_index = letter_list.index(char)
+            letter_replacement = alphabet_list[letter_index]
 
-        # Append every letter replacement to the decrypted message. Loop it until the keyword counter stops.
-        decrypted_msg.append(letter_replacement)
-        keyword_tracker += 1
+            # Append every letter replacement to the decrypted message. Loop it until the keyword counter stops.
+            decrypted_msg.append(letter_replacement)
+            keyword_tracker += 1
+        else:
+            decrypted_msg.append(char)
 
-    else:
-        joined_decrypted_msg = "".join(decrypted_msg)
+    joined_decrypted_msg = "".join(decrypted_msg)
 
     return joined_decrypted_msg
 
