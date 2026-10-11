@@ -21,6 +21,18 @@ def encryption_startup():
 
     return message, keyword
 
+""" Start up the decryption system. """
+
+def decryption_startup(encrypted_msg, loaded_keyword, keyword, alphabet_list):
+    if_startup = input("Would you like to decrypt your message? ")
+
+    if if_startup.strip().lower() == "yes":
+        decrypted_msg = decryption(encrypted_msg, loaded_keyword, keyword, alphabet_list)
+        print(f"Your decrypted message: {decrypted_msg}")
+    else:
+        sys.exit("Alright.")
+    return 
+
 """ Starts up the randomizer. """
 
 def start_randomizer():
