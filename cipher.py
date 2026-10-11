@@ -8,7 +8,7 @@ def encryption_startup():
 
     if_startup = input("Greetings! Would you like to encode a message (yes/no)? ")
     if if_startup.strip().lower() == "yes":
-        message = input("Paste your message here: ")
+        message = input("Paste your message here: ") 
     else:
         sys.exit("Aww.")
 
@@ -68,9 +68,31 @@ def encryption(message, loaded_keyword, keyword, alphabet_list):
 
     return joined_encrypted_msg
 
-def decryption(encrypted_msg, loaded_keyword):
+""" Decrypt encrypted messages. """
 
-    return
+def decryption(encrypted_msg, loaded_keyword, keyword, alphabet_list):
+    decrypted_msg = []
+    keyword_tracker = 0
+
+    # For each letter of the encrypted message, check each letter of the keyword.
+    for char in encrypted_msg:
+        current_keyword_letter = keyword[keyword_tracker % len(keyword)]
+
+        # Find the letter in that list and check the index of where it is in alphabet list.
+        letter_list = loaded_keyword[current_keyword_letter]
+        letter_index = letter_list.index(char)
+        letter_replacement = alphabet_list[letter_index]
+
+        # Append every letter replacement to the decrypted message. Loop it until the keyword counter stops.
+        decrypted_msg.append(letter_replacement)
+        keyword_tracker += 1
+
+    else:
+        joined_decrypted_msg = "".join(decrypted_msg)
+
+    return joined_decrypted_msg
+
+""" Clean data before passing into functions. """
 
 def message_cleaning(message):
     cleaned_message = message.lower().strip()

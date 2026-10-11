@@ -13,7 +13,8 @@ loaded_keyword = setup.assign_lists(keyword)
 encrypted_message = cipher.encryption(message, loaded_keyword, keyword, alphabet)
 print(f"Your encrypted message: {encrypted_message}")
 
-
+decrypted_message = cipher.decryption(encrypted_message, loaded_keyword, keyword, alphabet)
+print(decrypted_message)
 
 
 
